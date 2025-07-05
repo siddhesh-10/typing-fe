@@ -1,16 +1,19 @@
 <div class="typing-display" [class.focused]="isFocused" (click)="focusInput()">
   <div class="typing-container single-line">
     <div class="text-display single-line-text" [class.typing-active]="isTyping">
-      <ng-container *ngIf="visibleWords.length > 0; else noText">
+      <ng-container *ngIf="visibleAllChars.length > 0; else noText">
         <div class="scrolling-text-line" #scrollingTextLine>
-          <ng-container *ngFor="let word of visibleWords; let wordIndex = index">
-            <ng-container *ngFor="let char of word.split(''); let charIndex = index">
-              <span [class.current]="isCurrentChar((progress?.currentWordIndex ?? 0) + wordIndex, charIndex)">{{ char }}</span>
-            </ng-container>
-            <span 
-              *ngIf="wordIndex < visibleWords.length - 1" 
+          <ng-container *ngFor="let item of visibleAllChars">
+            <span
+              *ngIf="!item.isSpace"
+              [class.current]="isCurrentChar(item.wordIndex, item.charIndex)"
+              [class.correct]="isCharCorrect(item.wordIndex, item.charIndex)"
+              [class.incorrect]="isCharError(item.wordIndex, item.charIndex)"
+            >{{ item.char }}</span>
+            <span
+              *ngIf="item.isSpace"
               class="word-space"
-              [class.current]="isCurrentSpace((progress?.currentWordIndex ?? 0) + wordIndex)"
+              [class.current]="isCurrentSpace(item.wordIndex)"
             >␣</span>
           </ng-container>
         </div>

@@ -168,7 +168,7 @@ export class TypingService {
     } else {
       this.errorCount++;
       this.addError(wordIndex, charIndex, expectedChar, key);
-      this.updateProgress(wordIndex, charIndex + 1);
+      // Do NOT advance progress on error!
     }
     
     this.updateStats();

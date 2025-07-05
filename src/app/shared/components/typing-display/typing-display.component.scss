@@ -17,6 +17,13 @@
     }
   }
 }
+.text-display.single-line-text {
+  width: 10ch;
+  min-width: 10ch;
+  max-width: 10ch;
+  overflow: hidden;
+  white-space: nowrap;
+} 
 
 .typing-container {
   position: relative;
@@ -89,8 +96,10 @@
 }
 
 .scrolling-text-line {
-  display: inline-block;
+  overflow: hidden;
   white-space: nowrap;
+  display: inline-block;
+  width: 100%;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   font-weight: 400;
 }

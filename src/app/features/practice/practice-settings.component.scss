@@ -103,4 +103,12 @@
   }
 }
 
-/* Removed :host-context([data-theme="dark"]) and @media (prefers-color-scheme: dark) overrides for colors as they are now handled globally */ 
+/* Removed :host-context([data-theme="dark"]) and @media (prefers-color-scheme: dark) overrides for colors as they are now handled globally */
+
+.text-display.single-line-text {
+  width: 18ch;
+  min-width: 18ch;
+  max-width: 18ch;
+  overflow: hidden;
+  white-space: nowrap;
+} 

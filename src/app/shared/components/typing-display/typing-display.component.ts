@@ -32,7 +32,7 @@ export class TypingDisplayComponent implements OnInit, OnDestroy, AfterViewInit,
   accuracy: number = 100;
   errors: TypingError[] = [];
   cursorPosition: number = 0;
-  visibleWords: string[] = [];
+  visibleAllChars: { char: string, wordIndex: number, charIndex: number, isSpace: boolean }[] = [];
 
   private subscriptions: Subscription[] = [];
   private keyPressAudio = new Audio('assets/sounds/key-press.wav');
@@ -46,7 +46,7 @@ export class TypingDisplayComponent implements OnInit, OnDestroy, AfterViewInit,
         this.progress = progress;
         this.updateCursorPosition();
         this.updateVisibleWords();
-        setTimeout(() => this.scrollToCurrentChar(), 0);
+        this.scrollCurrentCharIntoView();
       }),
       this.typingService.wpm$.subscribe(wpm => this.wpm = wpm),
       this.typingService.accuracy$.subscribe(accuracy => this.accuracy = accuracy),
@@ -55,34 +55,34 @@ export class TypingDisplayComponent implements OnInit, OnDestroy, AfterViewInit,
     );
 
     this.updateWords();
-    this.updateVisibleWords();
+    setTimeout(() => this.updateVisibleWords(), 100);
+    setTimeout(() => this.scrollCurrentCharIntoView(), 200);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['text'] && changes['text'].currentValue) {
       this.updateWords();
-      // Only auto-start if explicitly enabled
       if (this.autoStart) {
         this.startSession();
       }
       setTimeout(() => this.focusInput(), 100);
-      setTimeout(() => this.scrollToCurrentChar(), 200);
+      setTimeout(() => this.scrollCurrentCharIntoView(), 200);
     }
   }
 
   private updateWords(): void {
     if (this.text && this.text.words) {
       this.words = this.text.words;
-      this.updateVisibleWords();
+      setTimeout(() => this.updateVisibleWords(), 100);
       console.log('Words updated:', this.words.length, 'words loaded');
     } else if (this.text && this.text.text) {
       // Fallback: split text into words if words array is not available
       this.words = this.text.text.split(/\s+/).filter(word => word.length > 0);
-      this.updateVisibleWords();
+      setTimeout(() => this.updateVisibleWords(), 100);
       console.log('Words created from text:', this.words.length, 'words');
     } else {
       this.words = [];
-      this.visibleWords = [];
+      this.visibleAllChars = [];
       console.log('No text available');
     }
   }
@@ -91,7 +91,10 @@ export class TypingDisplayComponent implements OnInit, OnDestroy, AfterViewInit,
     if (this.autoFocus) {
       setTimeout(() => this.focusInput(), 100);
     }
-    this.scrollToCurrentChar();
+    setTimeout(() => {
+      this.updateVisibleWords();
+      this.scrollCurrentCharIntoView();
+    }, 200);
   }
 
   ngOnDestroy(): void {
@@ -109,6 +112,14 @@ export class TypingDisplayComponent implements OnInit, OnDestroy, AfterViewInit,
         this.restartSession();
       }
     }
+  }
+
+  @HostListener('window:resize')
+  onWindowResize(): void {
+    // Recalculate visible words when window is resized
+    setTimeout(() => {
+      this.updateVisibleWords();
+    }, 100);
   }
 
   onKeyDown(event: KeyboardEvent): void {
@@ -373,32 +384,41 @@ export class TypingDisplayComponent implements OnInit, OnDestroy, AfterViewInit,
     return word[this.progress.currentCharIndex] || '';
   }
 
-  private scrollToCurrentChar(): void {
-    if (!this.scrollingTextLine || !this.progress) return;
-    const charSpans = this.scrollingTextLine.nativeElement.querySelectorAll('span');
-    let charIndex = 0;
-    for (let w = 0; w < this.progress.currentWordIndex; w++) {
-      charIndex += this.words[w].length + 1; // +1 for space
-    }
-    charIndex += this.progress.currentCharIndex;
-    const currentCharSpan = charSpans[charIndex] as HTMLElement;
-    if (currentCharSpan) {
-      const container = this.scrollingTextLine.nativeElement;
-      const charLeft = currentCharSpan.offsetLeft;
-      const charWidth = currentCharSpan.offsetWidth;
-      const containerWidth = container.offsetWidth;
-      const scrollTarget = charLeft - containerWidth / 2 + charWidth / 2;
-      container.scrollTo({ left: scrollTarget, behavior: 'smooth' });
-    }
+  private scrollCurrentCharIntoView() {
+    setTimeout(() => {
+      const container = this.scrollingTextLine?.nativeElement;
+      if (!container) return;
+      const current = container.querySelector('.current') as HTMLElement;
+      if (current) {
+        const containerRect = container.getBoundingClientRect();
+        const currentRect = current.getBoundingClientRect();
+        const offset = currentRect.left - containerRect.left - containerRect.width / 2 + currentRect.width / 2;
+        container.scrollLeft += offset;
+      }
+    }, 0);
   }
 
   private updateVisibleWords(): void {
     if (!this.progress || !this.words.length) {
-      this.visibleWords = [];
+      this.visibleAllChars = [];
       return;
     }
-    const start = this.progress.currentWordIndex;
-    const end = Math.min(start + 4, this.words.length); // current + next 3
-    this.visibleWords = this.words.slice(start, end);
+    let chars: { char: string, wordIndex: number, charIndex: number, isSpace: boolean }[] = [];
+    let w = this.progress.currentWordIndex;
+    let c = this.progress.currentCharIndex;
+    let started = false;
+    while (w < this.words.length) {
+      const word = this.words[w];
+      let startChar = started ? 0 : c;
+      for (let i = startChar; i < word.length; i++) {
+        chars.push({ char: word[i], wordIndex: w, charIndex: i, isSpace: false });
+      }
+      if (w < this.words.length - 1) {
+        chars.push({ char: ' ', wordIndex: w, charIndex: word.length, isSpace: true });
+      }
+      w++;
+      started = true;
+    }
+    this.visibleAllChars = chars;
   }
 } 
