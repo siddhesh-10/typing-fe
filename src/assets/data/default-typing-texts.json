@@ -1,0 +1,224 @@
+{
+  "typingTexts": [
+    {
+      "id": "easy_001",
+      "text": "The quick brown fox jumps over the lazy dog. This pangram contains every letter of the alphabet at least once.",
+      "words": ["The", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog", "This", "pangram", "contains", "every", "letter", "of", "the", "alphabet", "at", "least", "once"],
+      "category": "general",
+      "difficulty": "easy",
+      "language": "en",
+      "source": "Traditional pangram",
+      "wordCount": 20,
+      "estimatedTime": 1
+    },
+    {
+      "id": "easy_002",
+      "text": "Hello world! Welcome to typing practice. This is a simple text to help you get started with improving your typing skills.",
+      "words": ["Hello", "world", "Welcome", "to", "typing", "practice", "This", "is", "a", "simple", "text", "to", "help", "you", "get", "started", "with", "improving", "your", "typing", "skills"],
+      "category": "general",
+      "difficulty": "easy",
+      "language": "en",
+      "source": "Typing practice",
+      "wordCount": 21,
+      "estimatedTime": 1
+    },
+    {
+      "id": "easy_003",
+      "text": "The sun is bright today. Birds are singing in the trees. Children play in the park nearby. It is a beautiful day.",
+      "words": ["The", "sun", "is", "bright", "today", "Birds", "are", "singing", "in", "the", "trees", "Children", "play", "in", "the", "park", "nearby", "It", "is", "a", "beautiful", "day"],
+      "category": "nature",
+      "difficulty": "easy",
+      "language": "en",
+      "source": "Nature description",
+      "wordCount": 22,
+      "estimatedTime": 1
+    },
+    {
+      "id": "easy_004",
+      "text": "I love to read books. Reading helps me learn new things. Every book teaches me something different. Knowledge is power.",
+      "words": ["I", "love", "to", "read", "books", "Reading", "helps", "me", "learn", "new", "things", "Every", "book", "teaches", "me", "something", "different", "Knowledge", "is", "power"],
+      "category": "education",
+      "difficulty": "easy",
+      "language": "en",
+      "source": "Reading motivation",
+      "wordCount": 20,
+      "estimatedTime": 1
+    },
+    {
+      "id": "easy_005",
+      "text": "Cats and dogs are popular pets. Many people have them at home. They bring joy and companionship to families.",
+      "words": ["Cats", "and", "dogs", "are", "popular", "pets", "Many", "people", "have", "them", "at", "home", "They", "bring", "joy", "and", "companionship", "to", "families"],
+      "category": "animals",
+      "difficulty": "easy",
+      "language": "en",
+      "source": "Pet information",
+      "wordCount": 19,
+      "estimatedTime": 1
+    },
+    {
+      "id": "medium_001",
+      "text": "Programming is the art of telling another human being what one wants the computer to do. It requires logical thinking and problem-solving skills.",
+      "words": ["Programming", "is", "the", "art", "of", "telling", "another", "human", "being", "what", "one", "wants", "the", "computer", "to", "do", "It", "requires", "logical", "thinking", "and", "problem-solving", "skills"],
+      "category": "technology",
+      "difficulty": "medium",
+      "language": "en",
+      "source": "Programming wisdom",
+      "wordCount": 23,
+      "estimatedTime": 2
+    },
+    {
+      "id": "medium_002",
+      "text": "In a hole in the ground there lived a hobbit. Not a nasty, dirty, wet hole, filled with the ends of worms and an oozy smell.",
+      "words": ["In", "a", "hole", "in", "the", "ground", "there", "lived", "a", "hobbit", "Not", "a", "nasty", "dirty", "wet", "hole", "filled", "with", "the", "ends", "of", "worms", "and", "an", "oozy", "smell"],
+      "category": "literature",
+      "difficulty": "medium",
+      "language": "en",
+      "source": "The Hobbit by J.R.R. Tolkien",
+      "wordCount": 26,
+      "estimatedTime": 2
+    },
+    {
+      "id": "medium_003",
+      "text": "The human brain is the most complex organ in the body. It contains billions of neurons that process information and control our thoughts and actions.",
+      "words": ["The", "human", "brain", "is", "the", "most", "complex", "organ", "in", "the", "body", "It", "contains", "billions", "of", "neurons", "that", "process", "information", "and", "control", "our", "thoughts", "and", "actions"],
+      "category": "science",
+      "difficulty": "medium",
+      "language": "en",
+      "source": "Neuroscience",
+      "wordCount": 25,
+      "estimatedTime": 2
+    },
+    {
+      "id": "medium_004",
+      "text": "Success is not final, failure is not fatal: it is the courage to continue that counts. Every day brings new opportunities.",
+      "words": ["Success", "is", "not", "final", "failure", "is", "not", "fatal", "it", "is", "the", "courage", "to", "continue", "that", "counts", "Every", "day", "brings", "new", "opportunities"],
+      "category": "quotes",
+      "difficulty": "medium",
+      "language": "en",
+      "source": "Winston Churchill",
+      "wordCount": 21,
+      "estimatedTime": 2
+    },
+    {
+      "id": "medium_005",
+      "text": "The internet has revolutionized the way we communicate and access information. It connects people from all around the world instantly.",
+      "words": ["The", "internet", "has", "revolutionized", "the", "way", "we", "communicate", "and", "access", "information", "It", "connects", "people", "from", "all", "around", "the", "world", "instantly"],
+      "category": "technology",
+      "difficulty": "medium",
+      "language": "en",
+      "source": "Internet impact",
+      "wordCount": 20,
+      "estimatedTime": 2
+    },
+    {
+      "id": "hard_001",
+      "text": "Artificial intelligence is transforming the way we live and work. Machine learning algorithms can now process vast amounts of data to identify patterns and make predictions with remarkable accuracy.",
+      "words": ["Artificial", "intelligence", "is", "transforming", "the", "way", "we", "live", "and", "work", "Machine", "learning", "algorithms", "can", "now", "process", "vast", "amounts", "of", "data", "to", "identify", "patterns", "and", "make", "predictions", "with", "remarkable", "accuracy"],
+      "category": "technology",
+      "difficulty": "hard",
+      "language": "en",
+      "source": "AI technology overview",
+      "wordCount": 30,
+      "estimatedTime": 3
+    },
+    {
+      "id": "hard_002",
+      "text": "Quantum mechanics is a fundamental theory in physics that describes the behavior of matter and energy at the atomic and subatomic scales. It challenges our classical understanding of reality.",
+      "words": ["Quantum", "mechanics", "is", "a", "fundamental", "theory", "in", "physics", "that", "describes", "the", "behavior", "of", "matter", "and", "energy", "at", "the", "atomic", "and", "subatomic", "scales", "It", "challenges", "our", "classical", "understanding", "of", "reality"],
+      "category": "science",
+      "difficulty": "hard",
+      "language": "en",
+      "source": "Physics",
+      "wordCount": 29,
+      "estimatedTime": 3
+    },
+    {
+      "id": "hard_003",
+      "text": "The greatest glory in living lies not in never falling, but in rising every time we fall. Life is not about waiting for the storm to pass but learning to dance in the rain.",
+      "words": ["The", "greatest", "glory", "in", "living", "lies", "not", "in", "never", "falling", "but", "in", "rising", "every", "time", "we", "fall", "Life", "is", "not", "about", "waiting", "for", "the", "storm", "to", "pass", "but", "learning", "to", "dance", "in", "the", "rain"],
+      "category": "quotes",
+      "difficulty": "hard",
+      "language": "en",
+      "source": "Nelson Mandela and Vivian Greene",
+      "wordCount": 35,
+      "estimatedTime": 3
+    },
+    {
+      "id": "hard_004",
+      "text": "Climate change represents one of the most significant challenges facing humanity in the twenty-first century. It requires global cooperation and innovative solutions to mitigate its effects.",
+      "words": ["Climate", "change", "represents", "one", "of", "the", "most", "significant", "challenges", "facing", "humanity", "in", "the", "twenty-first", "century", "It", "requires", "global", "cooperation", "and", "innovative", "solutions", "to", "mitigate", "its", "effects"],
+      "category": "environment",
+      "difficulty": "hard",
+      "language": "en",
+      "source": "Environmental science",
+      "wordCount": 27,
+      "estimatedTime": 3
+    },
+    {
+      "id": "hard_005",
+      "text": "The human genome contains approximately three billion base pairs of DNA, encoding the genetic instructions for building and maintaining a human being. Understanding this code is crucial for medical advances.",
+      "words": ["The", "human", "genome", "contains", "approximately", "three", "billion", "base", "pairs", "of", "DNA", "encoding", "the", "genetic", "instructions", "for", "building", "and", "maintaining", "a", "human", "being", "Understanding", "this", "code", "is", "crucial", "for", "medical", "advances"],
+      "category": "science",
+      "difficulty": "hard",
+      "language": "en",
+      "source": "Genetics",
+      "wordCount": 30,
+      "estimatedTime": 3
+    },
+    {
+      "id": "expert_001",
+      "text": "The intricate interplay between quantum entanglement and classical information theory has profound implications for the development of quantum computing systems. These systems leverage superposition and entanglement to perform calculations that would be computationally intractable for classical computers.",
+      "words": ["The", "intricate", "interplay", "between", "quantum", "entanglement", "and", "classical", "information", "theory", "has", "profound", "implications", "for", "the", "development", "of", "quantum", "computing", "systems", "These", "systems", "leverage", "superposition", "and", "entanglement", "to", "perform", "calculations", "that", "would", "be", "computationally", "intractable", "for", "classical", "computers"],
+      "category": "technology",
+      "difficulty": "expert",
+      "language": "en",
+      "source": "Quantum computing",
+      "wordCount": 37,
+      "estimatedTime": 4
+    },
+    {
+      "id": "expert_002",
+      "text": "Neuroscientific research has revealed that consciousness emerges from the complex interactions of billions of neurons forming intricate neural networks. The binding problem, which addresses how disparate sensory inputs are unified into a coherent perceptual experience, remains one of the most challenging questions in cognitive science.",
+      "words": ["Neuroscientific", "research", "has", "revealed", "that", "consciousness", "emerges", "from", "the", "complex", "interactions", "of", "billions", "of", "neurons", "forming", "intricate", "neural", "networks", "The", "binding", "problem", "which", "addresses", "how", "disparate", "sensory", "inputs", "are", "unified", "into", "a", "coherent", "perceptual", "experience", "remains", "one", "of", "the", "most", "challenging", "questions", "in", "cognitive", "science"],
+      "category": "science",
+      "difficulty": "expert",
+      "language": "en",
+      "source": "Neuroscience",
+      "wordCount": 45,
+      "estimatedTime": 4
+    },
+    {
+      "id": "expert_003",
+      "text": "The philosophical implications of artificial general intelligence extend far beyond technological advancement, touching upon fundamental questions about consciousness, free will, and the nature of human existence. As we approach the singularity, we must carefully consider the ethical frameworks that will govern our relationship with these potentially superintelligent entities.",
+      "words": ["The", "philosophical", "implications", "of", "artificial", "general", "intelligence", "extend", "far", "beyond", "technological", "advancement", "touching", "upon", "fundamental", "questions", "about", "consciousness", "free", "will", "and", "the", "nature", "of", "human", "existence", "As", "we", "approach", "the", "singularity", "we", "must", "carefully", "consider", "the", "ethical", "frameworks", "that", "will", "govern", "our", "relationship", "with", "these", "potentially", "superintelligent", "entities"],
+      "category": "philosophy",
+      "difficulty": "expert",
+      "language": "en",
+      "source": "AI philosophy",
+      "wordCount": 47,
+      "estimatedTime": 4
+    },
+    {
+      "id": "expert_004",
+      "text": "The mathematical elegance of string theory, which posits that the fundamental constituents of reality are not point-like particles but rather one-dimensional strings vibrating at different frequencies, offers a potential framework for unifying quantum mechanics with general relativity, though experimental verification remains elusive.",
+      "words": ["The", "mathematical", "elegance", "of", "string", "theory", "which", "posits", "that", "the", "fundamental", "constituents", "of", "reality", "are", "not", "point-like", "particles", "but", "rather", "one-dimensional", "strings", "vibrating", "at", "different", "frequencies", "offers", "a", "potential", "framework", "for", "unifying", "quantum", "mechanics", "with", "general", "relativity", "though", "experimental", "verification", "remains", "elusive"],
+      "category": "science",
+      "difficulty": "expert",
+      "language": "en",
+      "source": "Theoretical physics",
+      "wordCount": 42,
+      "estimatedTime": 4
+    },
+    {
+      "id": "expert_005",
+      "text": "The intricate dance between epigenetic modifications and gene expression regulation represents a sophisticated layer of biological complexity that transcends the simple linear relationship between DNA sequence and protein function, revealing the remarkable plasticity of cellular identity and the profound influence of environmental factors on genetic destiny.",
+      "words": ["The", "intricate", "dance", "between", "epigenetic", "modifications", "and", "gene", "expression", "regulation", "represents", "a", "sophisticated", "layer", "of", "biological", "complexity", "that", "transcends", "the", "simple", "linear", "relationship", "between", "DNA", "sequence", "and", "protein", "function", "revealing", "the", "remarkable", "plasticity", "of", "cellular", "identity", "and", "the", "profound", "influence", "of", "environmental", "factors", "on", "genetic", "destiny"],
+      "category": "science",
+      "difficulty": "expert",
+      "language": "en",
+      "source": "Epigenetics",
+      "wordCount": 44,
+      "estimatedTime": 4
+    }
+  ]
+} 

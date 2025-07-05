@@ -1,0 +1,71 @@
+<div class="typing-display" [class.focused]="isFocused" (click)="focusInput()">
+  <div class="typing-container single-line">
+    <div class="text-display single-line-text" [class.typing-active]="isTyping">
+      <ng-container *ngIf="visibleWords.length > 0; else noText">
+        <div class="scrolling-text-line" #scrollingTextLine>
+          <ng-container *ngFor="let word of visibleWords; let wordIndex = index">
+            <ng-container *ngFor="let char of word.split(''); let charIndex = index">
+              <span [class.current]="isCurrentChar((progress?.currentWordIndex ?? 0) + wordIndex, charIndex)">{{ char }}</span>
+            </ng-container>
+            <span 
+              *ngIf="wordIndex < visibleWords.length - 1" 
+              class="word-space"
+              [class.current]="isCurrentSpace((progress?.currentWordIndex ?? 0) + wordIndex)"
+            >␣</span>
+          </ng-container>
+        </div>
+      </ng-container>
+      <ng-template #noText>
+        <div class="no-text-placeholder" style="color:#e53e3e;font-size:2rem;text-align:center;padding:40px 0;">
+          No text loaded! Please check your connection or try again.
+        </div>
+      </ng-template>
+    </div>
+    
+    <div class="cursor" 
+         [class.active]="isTyping && isFocused"
+         [style.left]="cursorPosition + 'px'"
+         *ngIf="progress">
+    </div>
+  </div>
+  
+  <input 
+    #typingInput
+    type="text" 
+    class="typing-input"
+    [disabled]="!text"
+    (keydown)="onKeyDown($event)"
+    (focus)="onFocus()"
+    (blur)="onBlur()"
+    autocomplete="off"
+    autocorrect="off"
+    autocapitalize="off"
+    spellcheck="false"
+  />
+  
+  <div class="typing-stats" *ngIf="showStats">
+    <div class="stats-grid">
+      <div class="stat">
+        <span class="label">WPM:</span>
+        <span class="value">{{ wpm }}</span>
+      </div>
+      <div class="stat">
+        <span class="label">Accuracy:</span>
+        <span class="value">{{ accuracy }}%</span>
+      </div>
+      <div class="stat">
+        <span class="label">Errors:</span>
+        <span class="value">{{ errors.length }}</span>
+      </div>
+      <div class="stat" *ngIf="progress">
+        <span class="label">Progress:</span>
+        <span class="value">{{ progress.completedWords }}/{{ words.length }}</span>
+      </div>
+    </div>
+    
+    <!-- Progress Bar -->
+    <div class="progress-bar" *ngIf="progress">
+      <div class="progress-fill" [style.width.%]="(progress.completedWords / words.length) * 100"></div>
+    </div>
+  </div>
+</div> 

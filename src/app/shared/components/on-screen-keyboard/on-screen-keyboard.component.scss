@@ -1,0 +1,145 @@
+@import '../../../shared/styles';
+
+// Modern On-Screen Keyboard Styles
+.on-screen-keyboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0x auto 0 auto;
+  user-select: none;
+  width: 100%;
+  max-width: 650px;
+  overflow-x: hidden;
+  padding: 1rem 0;
+  box-sizing: border-box;
+}
+
+.keyboard-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 0.4rem;
+  min-height: 44px;
+  position: relative;
+}
+
+.keyboard-key {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 0;
+  min-width: 36px;
+  height: 44px;
+  margin: 0 2px;
+  background: var(--bg-primary);
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  font-weight: 600;
+  color: var(--text-primary);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  z-index: 1;
+  box-sizing: border-box;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  aspect-ratio: 1 / 1;
+}
+
+.special-label {
+  font-size: 0.8rem;
+  padding: 0 1px;
+  letter-spacing: -0.5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+// Special key flex values for width
+.keyboard-key.tab { flex: 1.5 1.5 0; min-width: 54px; }
+.keyboard-key.caps { flex: 2 2 0; min-width: 72px; }
+.keyboard-key.shift { flex: 2.5 2.5 0; min-width: 90px; }
+.keyboard-key.enter { flex: 2 2 0; min-width: 72px; }
+.keyboard-key.backspace { flex: 2 2 0; min-width: 72px; }
+.keyboard-key.space { flex: 7 7 0; min-width: 180px; height: 44px; border-radius: 8px; aspect-ratio: unset; }
+
+.keyboard-key.empty {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  cursor: default !important;
+  min-width: 0 !important;
+  width: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+}
+
+.keyboard-key.highlighted {
+  @include gradient-primary;
+  color: var(--bg-primary);
+  border-color: var(--primary-color);
+  box-shadow: 0 4px 16px rgba(102, 126, 234, 0.25);
+  transform: scale(1.08);
+  z-index: 2;
+}
+
+.keyboard-key.pressed {
+  background: var(--secondary-color) !important;
+  color: var(--bg-primary) !important;
+  border-color: var(--secondary-color) !important;
+  transform: scale(1.12);
+  box-shadow: 0 0 20px rgba(118, 75, 162, 0.7);
+  transition: all 0.1s cubic-bezier(0.4,0,0.2,1);
+  z-index: 3;
+}
+
+.keyboard-key span {
+  pointer-events: none;
+}
+
+// Responsive Design
+@media (max-width: 900px) {
+  .on-screen-keyboard {
+    max-width: 100vw;
+    padding: 0.5rem 0;
+  }
+  .keyboard-key {
+    height: 48px;
+    font-size: 1rem;
+  }
+  .special-label {
+    font-size: 0.8rem;
+  }
+  .keyboard-key.space {
+    min-width: 60px;
+    font-size: 1rem;
+  }
+  .keyboard-row {
+    min-height: 36px;
+  }
+}
+
+@media (max-width: 600px) {
+  .keyboard-key {
+    height: 32px;
+    font-size: 0.75rem;
+  }
+  .special-label {
+    font-size: 0.7rem;
+  }
+  .keyboard-key.space {
+    min-width: 30px;
+    font-size: 0.85rem;
+  }
+  .keyboard-row {
+    min-height: 28px;
+  }
+} 

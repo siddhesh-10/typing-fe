@@ -1,0 +1,21 @@
+<div class="on-screen-keyboard">
+  <div class="keyboard-row" *ngFor="let row of rows; let rowIndex = index" [ngClass]="'row-' + rowIndex">
+    <ng-container *ngFor="let key of row">
+      <div 
+        class="keyboard-key"
+        [ngClass]="[
+          key.type,
+          key.label === '' ? 'empty' : '',
+          isKeyHighlighted(key) ? 'highlighted' : '',
+          isKeyPressed(key) ? 'pressed' : '',
+          (key.label.length > 5 || key.type !== 'normal') ? 'special-label' : ''
+        ]"
+        [style.flex]="key.width || null"
+        [attr.data-code]="key.code"
+      >
+        <span *ngIf="key.label === 'Space'">⎵</span>
+        <span *ngIf="key.label !== 'Space'">{{ key.label }}</span>
+      </div>
+    </ng-container>
+  </div>
+</div> 

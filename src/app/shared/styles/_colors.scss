@@ -1,0 +1,167 @@
+// =============================================================================
+// COLOR SYSTEM (CSS Custom Properties Only)
+// =============================================================================
+// Define all color variables in :root for the light theme
+// Override them in [data-theme="dark"] for the dark theme
+
+:root {
+  /* Primary Colors */
+  --primary-color: #667eea;
+  --primary-color-alt: #2563eb;
+  --primary-hover: #1d4ed8;
+  --secondary-color: #764ba2;
+  --accent-color: #f093fb;
+
+  /* Semantic Colors */
+  --success-color: #10b981;
+  --success-color-alt: #48bb78;
+  --success-color-light: #68d391;
+  --warning-color: #f59e0b;
+  --warning-color-alt: #d97706;
+  --error-color: #ef4444;
+  --error-color-alt: #dc2626;
+  --error-color-light: #f56565;
+
+  /* Text Colors */
+  --text-primary: #1a202c;        // Main text: dark gray
+  --text-primary-alt: #1e293b;
+  --text-secondary: #4a5568;      // Secondary text: medium gray
+  --text-secondary-alt: #475569;
+  --text-muted: #94a3b8;          // Muted text: light gray
+  --text-light: #e2e8f0;
+  --text-dark: #1a202c;
+
+  /* Background Colors */
+  --bg-primary: #ffffff;          // Main background: pure white
+  --bg-secondary: #f5f7fa;       // Slightly off-white, for cards/sections
+  --bg-secondary-alt: #f0f4f8;   // Even lighter gray for subtle contrast
+  --bg-tertiary: #e9eef5;        // For tertiary backgrounds or subtle highlights
+  --bg-dark: #1a202c;
+  --bg-dark-secondary: #2d3748;
+  --bg-dark-tertiary: #4a5568;
+
+  /* Border Colors */
+  --border-color: #e2e8f0;        // Light border
+  --border-hover: #cbd5e1;        // Slightly darker on hover
+  --border-dark: #2d3748;
+
+  /* Neutral Colors */
+  --gray-100: #f1f1f1;
+  --gray-200: #c1c1c1;
+  --gray-300: #a8a8a8;
+  --gray-400: #a0aec0;
+  --gray-500: #cbd5e0;
+
+  /* Status Colors */
+  --success-bg: #dcfce7;
+  --success-text: #166534;
+  --warning-bg: #fef3c7;
+  --warning-text: #92400e;
+  --error-bg: #fecaca;
+  --error-text: #991b1b;
+  --info-bg: #f3e8ff;
+  --info-text: #7c3aed;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.04);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.08);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+[data-theme="dark"] {
+  /* Primary Colors - keep same for consistency */
+  --primary-color: #667eea;
+  --primary-color-alt: #2563eb;
+  --primary-hover: #1d4ed8;
+  --secondary-color: #764ba2;
+  --accent-color: #f093fb;
+
+  /* Text Colors - light text on dark backgrounds */
+  --text-primary: #f7fafc;
+  --text-primary-alt: #e2e8f0;
+  --text-secondary: #cbd5e0;
+  --text-secondary-alt: #a0aec0;
+  --text-muted: #718096;
+  --text-light: #1a202c;
+  --text-dark: #f7fafc;
+
+  /* Background Colors - dark backgrounds */
+  --bg-primary: #0f1419;
+  --bg-secondary: #1a202c;
+  --bg-secondary-alt: #2d3748;
+  --bg-tertiary: #4a5568;
+  --bg-dark: #1a202c;
+  --bg-dark-secondary: #2d3748;
+  --bg-dark-tertiary: #4a5568;
+
+  /* Border Colors */
+  --border-color: #2d3748;
+  --border-hover: #4a5568;
+  --border-dark: #e2e8f0;
+
+  /* Neutral Colors */
+  --gray-100: #2d3748;
+  --gray-200: #4a5568;
+  --gray-300: #718096;
+  --gray-400: #a0aec0;
+  --gray-500: #cbd5e0;
+
+  /* Status Colors - adjusted for dark theme */
+  --success-bg: #1a4731;
+  --success-text: #68d391;
+  --warning-bg: #4c1d1b;
+  --warning-text: #f6ad55;
+  --error-bg: #742a2a;
+  --error-text: #feb2b2;
+  --info-bg: #2d1b69;
+  --info-text: #b794f4;
+
+  /* Shadows - adjusted for dark theme */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.5);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.5), 0 8px 10px -6px rgb(0 0 0 / 0.5);
+}
+
+// =============================================================================
+// UTILITY MIXINS (optional, can use CSS vars inside)
+// =============================================================================
+@mixin gradient-primary {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+}
+
+@mixin gradient-success {
+  background: linear-gradient(135deg, var(--success-color), var(--success-color-alt));
+}
+
+@mixin gradient-warning {
+  background: linear-gradient(135deg, var(--warning-color), var(--warning-color-alt));
+}
+
+@mixin gradient-error {
+  background: linear-gradient(135deg, var(--error-color), var(--error-color-alt));
+}
+
+@mixin gradient-dark {
+  background: linear-gradient(135deg, var(--bg-dark-secondary), var(--bg-dark-tertiary));
+}
+
+// =============================================================================
+// TRANSPARENCY UTILITIES (optional, can use CSS vars inside)
+// =============================================================================
+@mixin primary-transparency($opacity: 0.1) {
+  background: rgba(102, 126, 234, $opacity); // fallback for var(--primary-color)
+}
+
+@mixin success-transparency($opacity: 0.1) {
+  background: rgba(16, 185, 129, $opacity); // fallback for var(--success-color)
+}
+
+@mixin warning-transparency($opacity: 0.1) {
+  background: rgba(245, 158, 11, $opacity); // fallback for var(--warning-color)
+}
+
+@mixin error-transparency($opacity: 0.1) {
+  background: rgba(239, 68, 68, $opacity); // fallback for var(--error-color)
+} 

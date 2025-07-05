@@ -1,0 +1,113 @@
+<div class="home-container">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="hero-title">
+          Master Your
+          <span class="gradient-text">Typing Speed</span>
+        </h1>
+        <p class="hero-subtitle">
+          Improve your typing skills with AI-powered practice, real-time competitions, 
+          and global leaderboards. Join thousands of typists worldwide!
+        </p>
+        <div class="hero-actions">
+          <button class="btn btn-primary btn-large" routerLink="/practice">
+            <i class="icon">⌨️</i>
+            Start Practicing
+          </button>
+          <button class="btn btn-secondary btn-large" routerLink="/leaderboard">
+            <i class="icon">🏆</i>
+            View Leaderboard
+          </button>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="typing-animation">
+          <div class="typing-text">
+            <span class="completed">The quick brown fox</span>
+            <span class="current">jumps</span>
+            <span class="remaining">over the lazy dog</span>
+          </div>
+          <div class="cursor"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section">
+    <div class="section-header">
+      <h2>Why Choose TypeMaster?</h2>
+      <p>Advanced features designed to accelerate your typing journey</p>
+    </div>
+    
+    <div class="features-grid">
+      <div class="feature-card" *ngFor="let feature of features">
+        <div class="feature-icon">
+          <i [class]="feature.icon"></i>
+        </div>
+        <h3>{{ feature.title }}</h3>
+        <p>{{ feature.description }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats-section">
+    <div class="stats-grid">
+      <div class="stat-card" *ngFor="let stat of stats">
+        <div class="stat-number">{{ stat.value }}</div>
+        <div class="stat-label">{{ stat.label }}</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Practice Modes Section -->
+  <section class="modes-section">
+    <div class="section-header">
+      <h2>Practice Modes</h2>
+      <p>Choose your preferred way to improve</p>
+    </div>
+    
+    <div class="modes-grid">
+      <div class="mode-card" *ngFor="let mode of practiceModes">
+        <div class="mode-header">
+          <div class="mode-icon">
+            <i [class]="mode.icon"></i>
+          </div>
+          <h3>{{ mode.title }}</h3>
+        </div>
+        <p>{{ mode.description }}</p>
+        <div class="mode-features">
+          <span class="feature-tag" *ngFor="let feature of mode.features">{{ feature }}</span>
+        </div>
+        <button class="btn btn-outline" [routerLink]="mode.route">
+          {{ mode.buttonText }}
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="cta-content">
+      <h2>Ready to Improve Your Typing?</h2>
+      <p>Join thousands of users who have already improved their typing speed</p>
+      <div class="cta-actions">
+        <button class="btn btn-primary btn-large" routerLink="/auth" *ngIf="!authService.isAuthenticated()">
+          <i class="icon">🚀</i>
+          Get Started
+        </button>
+        <button class="btn btn-primary btn-large" routerLink="/practice" *ngIf="authService.isAuthenticated()">
+          <i class="icon">⌨️</i>
+          Start Practice
+        </button>
+        <button class="btn btn-secondary btn-large" routerLink="/leaderboard">
+          <i class="icon">🏆</i>
+          View Rankings
+        </button>
+      </div>
+    </div>
+  </section>
+</div> 

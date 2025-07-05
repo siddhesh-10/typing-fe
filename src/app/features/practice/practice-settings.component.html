@@ -1,0 +1,65 @@
+<div class="practice-settings-container">
+  <div class="settings-header">
+    <h1>Typing Practice</h1>
+    <p>Choose your practice settings and start improving your typing speed</p>
+  </div>
+
+  <div class="settings-grid">
+    <!-- Difficulty Selection -->
+    <div class="setting-card">
+      <h3>Difficulty Level</h3>
+      <div class="difficulty-options">
+        <button 
+          *ngFor="let diff of difficulties" 
+          class="difficulty-btn"
+          [class.active]="selectedDifficulty === diff.value"
+          (click)="selectDifficulty(diff.value)"
+        >
+          <div class="difficulty-icon">{{ diff.icon }}</div>
+          <div class="difficulty-info">
+            <span class="difficulty-name">{{ diff.name }}</span>
+            <span class="difficulty-desc">{{ diff.description }}</span>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <!-- Category Selection -->
+    <div class="setting-card">
+      <h3>Text Category</h3>
+      <div class="category-options">
+        <button 
+          *ngFor="let cat of categories" 
+          class="category-btn"
+          [class.active]="selectedCategory === cat.value"
+          (click)="selectCategory(cat.value)"
+        >
+          <span class="category-icon">{{ cat.icon }}</span>
+          <span class="category-name">{{ cat.name }}</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Time Limit -->
+    <div class="setting-card">
+      <h3>Time Limit (Optional)</h3>
+      <div class="time-options">
+        <button 
+          *ngFor="let time of timeLimits" 
+          class="time-btn"
+          [class.active]="selectedTimeLimit === time.value"
+          (click)="selectTimeLimit(time.value)"
+        >
+          {{ time.label }}
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="start-practice">
+    <button class="btn btn-primary btn-large" (click)="startPractice()" [disabled]="isLoading">
+      <i class="icon">⌨️</i>
+      {{ isLoading ? 'Loading...' : 'Start Practice' }}
+    </button>
+  </div>
+</div> 

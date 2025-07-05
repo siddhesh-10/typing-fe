@@ -1,0 +1,141 @@
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
+<!-- * * * * * * * to get started with your project! * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+<div class="app-container">
+  <!-- Header -->
+  <header class="header" [class.scrolled]="isScrolled">
+    <div class="header-content">
+      <div class="logo">
+        <h1>TypeMaster</h1>
+        <span class="tagline">Master Your Typing Speed</span>
+      </div>
+      
+      <nav class="nav-menu" [class.mobile-open]="isMobileMenuOpen">
+        <a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">
+          <i class="icon">🏠</i>
+          <span>Home</span>
+        </a>
+        <a routerLink="/practice" routerLinkActive="active" class="nav-link">
+          <i class="icon">⌨️</i>
+          <span>Practice</span>
+        </a>
+        <a routerLink="/leaderboard" routerLinkActive="active" class="nav-link">
+          <i class="icon">🏆</i>
+          <span>Leaderboard</span>
+        </a>
+        <a routerLink="/challenge" routerLinkActive="active" class="nav-link" *ngIf="authState.isAuthenticated">
+          <i class="icon">⚔️</i>
+          <span>Challenge</span>
+        </a>
+        <a routerLink="/ai-practice" routerLinkActive="active" class="nav-link" *ngIf="authState.isAuthenticated">
+          <i class="icon">🤖</i>
+          <span>AI Practice</span>
+        </a>
+        <a routerLink="/profile" routerLinkActive="active" class="nav-link" *ngIf="authState.isAuthenticated">
+          <i class="icon">👤</i>
+          <span>Profile</span>
+        </a>
+      </nav>
+
+      <div class="auth-section">
+        <div *ngIf="authState.isAuthenticated && authState.user" class="user-info">
+          <div class="user-avatar">
+            <img [src]="authState.user.avatar || '/assets/default-avatar.png'" [alt]="authState.user.username">
+            <div class="online-indicator" [class.online]="authState.user.isOnline"></div>
+          </div>
+          <div class="user-details">
+            <span class="username">{{ authState.user.username }}</span>
+            <span class="wpm">Best: {{ authState.user.bestWpm }} WPM</span>
+          </div>
+          <button class="logout-btn" (click)="logout()" [disabled]="authState.isLoading">
+            <i class="icon">🚪</i>
+          </button>
+        </div>
+        
+        <div *ngIf="!authState.isAuthenticated" class="auth-buttons">
+          <button class="btn btn-primary" routerLink="/auth">
+            <i class="icon">🔐</i>
+            <span>Login</span>
+          </button>
+        </div>
+      </div>
+
+      <button class="theme-toggle-btn" (click)="toggleTheme()" aria-label="Toggle theme">
+        <span *ngIf="currentTheme === 'dark'">🌞</span>
+        <span *ngIf="currentTheme === 'light'">🌙</span>
+      </button>
+
+      <button class="mobile-menu-toggle" (click)="toggleMobileMenu()" [class.active]="isMobileMenuOpen">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>TypeMaster</h3>
+        <p>Improve your typing speed and accuracy with our advanced typing practice platform.</p>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Features</h4>
+        <ul>
+          <li><a href="#">Typing Practice</a></li>
+          <li><a href="#">AI Challenges</a></li>
+          <li><a href="#">Leaderboards</a></li>
+          <li><a href="#">1v1 Battles</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Connect</h4>
+        <div class="social-links">
+          <a href="#" class="social-link">📘</a>
+          <a href="#" class="social-link">🐦</a>
+          <a href="#" class="social-link">📷</a>
+          <a href="#" class="social-link">💼</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2024 TypeMaster. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Loading Overlay -->
+  <div class="loading-overlay" *ngIf="authState.isLoading">
+    <div class="loading-spinner">
+      <div class="spinner"></div>
+      <p>Loading...</p>
+    </div>
+  </div>
+</div>
+
+<!-- Toastr container for notifications -->
+<div id="toast-container"></div>
